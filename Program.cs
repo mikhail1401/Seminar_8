@@ -1,7 +1,7 @@
 ﻿// Two-dimensional arrays
 
 Console.WriteLine("Task 53");
-// Задача 52: Задайте двумерный массив. Напишите программу, 
+// Задайте двумерный массив. Напишите программу, 
 // которая поменяет местами первую и последнюю строку массива.
 
 Console.Write("Enter a number of rows: ");
@@ -55,4 +55,66 @@ Console.WriteLine("After: ");
 PrintArray();
 
 
-Console.WriteLine("\nTask ");
+Console.WriteLine("\nTask 55");
+// Задайте двумерный массив. Напишите программу,
+// которая заменяет строки на столбцы. В случае, если это
+// невозможно, программа должна вывести сообщение для пользователя.
+
+Console.Write("Enter the number of rows and columns for the square array: ");
+int number = Convert.ToInt32(Console.ReadLine());
+
+int[,] matrix1 = new int[number, number];
+int[,] matrix2 = new int[number, number];
+
+void CreateSquareArray()
+{
+    for (int row=0; row<matrix1.GetLength(0); row++)
+    {
+        for (int column=0; column<matrix1.GetLength(1); column++)
+        {
+            matrix1[row, column] = new Random().Next(-10, 11);
+        }
+    }
+}
+
+void PrintSquareArray()
+{
+    for (int row=0; row<matrix1.GetLength(0); row++)
+    {
+        for (int column=0; column<matrix1.GetLength(1); column++)
+        {
+            Console.Write(matrix1[row, column] + " ");
+        }
+        Console.WriteLine();
+    }
+}
+
+void SwapRowColumn()
+{
+    for (int row=0; row<matrix2.GetLength(0); row++)
+    {
+        for (int column=0; column<matrix2.GetLength(1); column++)
+        {
+            matrix2[row, column] = matrix1[column, row];
+        }
+    }
+}
+
+void PrintSwappedSqaureArray()
+{
+    for (int row=0; row<matrix2.GetLength(0); row++)
+    {
+        for (int column=0; column<matrix2.GetLength(1); column++)
+        {
+            Console.Write(matrix2[row, column] + " ");
+        }
+        Console.WriteLine();
+    }
+}
+
+Console.WriteLine("Before: ");
+CreateSquareArray();
+PrintSquareArray();
+Console.WriteLine("After: ");
+SwapRowColumn();
+PrintSwappedSqaureArray();
