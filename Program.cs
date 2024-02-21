@@ -35,10 +35,6 @@ void PrintArray()
     }
 }
 
-Console.WriteLine("Before: ");
-CreateArray();
-PrintArray();
-
 // Swapping the lines
 void SwapTheLines()
 {
@@ -51,8 +47,10 @@ void SwapTheLines()
     }
 }
 
+Console.WriteLine("Before: ");
+CreateArray();
+PrintArray();
 SwapTheLines();
-
 Console.WriteLine("After: ");
 PrintArray();
 
