@@ -12,19 +12,34 @@ int y = Convert.ToInt32(Console.ReadLine());
 
 int[,] matrix = new int[x, y];
 
-int swap = 0;
-
-Console.WriteLine("Before: ");
-for (int row=0; row<matrix.GetLength(0); row++)
+void CreateArray()
 {
-    for (int column=0; column<matrix.GetLength(1); column++)
+    for (int row=0; row<matrix.GetLength(0); row++)
     {
-        matrix[row, column] = new Random().Next(-10, 11);
-        Console.Write(matrix[row, column] + " ");
+        for (int column=0; column<matrix.GetLength(1); column++)
+        {
+            matrix[row, column] = new Random().Next(-10, 11);
+        }
     }
-    Console.WriteLine();
 }
 
+void PrintArray()
+{
+    for (int row=0; row<matrix.GetLength(0); row++)
+    {
+        for (int column=0; column<matrix.GetLength(1); column++)
+        {
+            Console.Write(matrix[row, column] + " ");
+        }
+        Console.WriteLine();
+    }
+}
+
+Console.WriteLine("Before: ");
+CreateArray();
+PrintArray();
+
+// swapping the lines
 for (int column=0; column<matrix.GetLength(1); column++)
 {
     int changer = matrix.GetLength(0)-1;    // index of the last row
@@ -34,14 +49,7 @@ for (int column=0; column<matrix.GetLength(1); column++)
 }
 
 Console.WriteLine("After: ");
-for (int row=0; row<matrix.GetLength(0); row++)
-{
-    for (int column=0; column<matrix.GetLength(1); column++)
-    {
-        Console.Write(matrix[row, column] + " ");
-    }
-    Console.WriteLine();
-}
+PrintArray();
 
 
 Console.WriteLine("\nTask ");
