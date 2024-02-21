@@ -77,13 +77,13 @@ void CreateSquareArray()
     }
 }
 
-void PrintSquareArray()
+void PrintSquareArray(int[,] array)
 {
-    for (int row=0; row<matrix1.GetLength(0); row++)
+    for (int row=0; row<array.GetLength(0); row++)
     {
-        for (int column=0; column<matrix1.GetLength(1); column++)
+        for (int column=0; column<array.GetLength(1); column++)
         {
-            Console.Write(matrix1[row, column] + " ");
+            Console.Write(array[row, column] + " ");
         }
         Console.WriteLine();
     }
@@ -100,21 +100,12 @@ void SwapRowColumn()
     }
 }
 
-void PrintSwappedSqaureArray()
-{
-    for (int row=0; row<matrix2.GetLength(0); row++)
-    {
-        for (int column=0; column<matrix2.GetLength(1); column++)
-        {
-            Console.Write(matrix2[row, column] + " ");
-        }
-        Console.WriteLine();
-    }
-}
-
 Console.WriteLine("Before: ");
 CreateSquareArray();
-PrintSquareArray();
+PrintSquareArray(matrix1);
 Console.WriteLine("After: ");
 SwapRowColumn();
-PrintSwappedSqaureArray();
+PrintSquareArray(matrix2);
+
+
+Console.WriteLine("\nTask 59");
