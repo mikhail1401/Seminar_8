@@ -39,14 +39,19 @@ Console.WriteLine("Before: ");
 CreateArray();
 PrintArray();
 
-// swapping the lines
-for (int column=0; column<matrix.GetLength(1); column++)
+// Swapping the lines
+void SwapTheLines()
 {
-    int changer = matrix.GetLength(0)-1;    // index of the last row
-    int temp = matrix[0, column];
-    matrix[0, column] = matrix[changer, column];
-    matrix[changer, column] = temp;
+    for (int column=0; column<matrix.GetLength(1); column++)
+    {
+        int changer = matrix.GetLength(0)-1;    // index of the last row
+        int temp = matrix[0, column];
+        matrix[0, column] = matrix[changer, column];
+        matrix[changer, column] = temp;
+    }
 }
+
+SwapTheLines();
 
 Console.WriteLine("After: ");
 PrintArray();
