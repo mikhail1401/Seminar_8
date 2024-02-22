@@ -185,11 +185,13 @@ void PrintUpdatedArray(int[,] array)
                 Console.Write(array[row, column] + " ");
             }
         }
-        Console.WriteLine();
+        if (row!=rowIndex) Console.WriteLine();
     }
 }
 
+Console.WriteLine("Initial Array: ");
 FillArray(matrix59);
 PrintFilledArray(matrix59);
 FindMinNum(matrix59);
+Console.WriteLine("Updated Array: ");
 PrintUpdatedArray(matrix59);
