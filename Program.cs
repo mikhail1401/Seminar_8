@@ -66,7 +66,7 @@ int number = Convert.ToInt32(Console.ReadLine());
 int[,] matrix1 = new int[number, number];
 int[,] matrix2 = new int[number, number];
 
-void CreateSquareArray()
+void CreateSquareArray() 
 {
     for (int row=0; row<matrix1.GetLength(0); row++)
     {
@@ -109,3 +109,87 @@ PrintSquareArray(matrix2);
 
 
 Console.WriteLine("\nTask 59");
+// Задайте двумерный массив из целых чисел. Напишите программу, 
+// которая удалит строку и столбец, на пересечении которых расположен 
+// наименьший элемент массива.
+// Например, задан массив:
+// 1 4 7 2
+// 5 9 2 3
+// 8 4 2 4
+// 5 2 6 7
+// Наименьший элемент - 1, на выходе получим
+// следующий массив:
+
+Console.Write("Enter the number of rows: ");
+int rowNum = Convert.ToInt32(Console.ReadLine());
+
+Console.Write("Enter the number of columns: ");
+int columnNum = Convert.ToInt32(Console.ReadLine());
+
+int[,] matrix59 = new int[rowNum, columnNum];
+
+void FillArray(int[,] array)
+{
+    for (int row=0; row<array.GetLength(0); row++)
+    {
+        for (int column=0; column<array.GetLength(1); column++)
+        {
+            array[row, column] = new Random().Next(0, 11);
+        }
+    }
+}
+
+void PrintFilledArray(int[,] array)
+{
+    for (int row=0; row<array.GetLength(0); row++)
+    {
+        for (int column=0; column<array.GetLength(1); column++)
+        {
+            Console.Write(array[row, column] + " ");
+        }
+        Console.WriteLine();
+    }
+}
+
+int rowIndex=0;
+int columnIndex=0;
+
+void FindMinNum(int[,] array)
+{
+    int min = int.MaxValue;
+
+    for (int row=0; row<array.GetLength(0); row++)
+    {
+        for (int column=0; column<array.GetLength(1); column++)
+        {
+            if(array[row, column] < min)
+            {
+                min = array[row, column];
+                rowIndex = row;
+                columnIndex = column;
+            }
+        }
+    }
+
+    Console.WriteLine($"The min number in the array is {min}[{rowIndex},{columnIndex}].");
+}
+
+void PrintUpdatedArray(int[,] array)
+{
+    for (int row=0; row<array.GetLength(0); row++)
+    {
+        for (int column=0; column<array.GetLength(1); column++)
+        {
+            if(row!=rowIndex && column!=columnIndex)
+            {
+                Console.Write(array[row, column] + " ");
+            }
+        }
+        Console.WriteLine();
+    }
+}
+
+FillArray(matrix59);
+PrintFilledArray(matrix59);
+FindMinNum(matrix59);
+PrintUpdatedArray(matrix59);
