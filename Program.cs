@@ -119,6 +119,9 @@ Console.WriteLine("\nTask 59");
 // 5 2 6 7
 // Наименьший элемент - 1, на выходе получим
 // следующий массив:
+// 9 2 3
+// 4 2 4
+// 2 6 7
 
 Console.Write("Enter the number of rows: ");
 int rowNum = Convert.ToInt32(Console.ReadLine());
